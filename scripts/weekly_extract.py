@@ -8,8 +8,9 @@ load_dotenv()
 
 # Get the environment variables
 url = os.getenv("CSV_URL")
+
 # Use the relative path defined in .env for SAVE_DIRECTORY
-save_directory = os.getenv("SAVE_DIRECTORY", os.path.join(os.getcwd(), 'data', 'CSV_Files'))  # Default to relative path if not defined
+save_directory = os.getenv("SAVE_DIRECTORY", '../data/CSV_Files')
 
 # Generate the file name and save in the relative CSV Files directory
 save_path = os.path.join(save_directory, f"dboUnificado_{datetime.now().strftime('%Y-%m-%d')}.csv")
