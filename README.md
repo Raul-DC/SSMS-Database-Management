@@ -74,29 +74,30 @@ DB_PASSWORD=your_password
 3. **Remove duplicates**: A query ensures that no duplicate records remain in the database.
 
 ```markdown
-                                               +----------+
-                                           IDE | Script   | (weekly_extract.py)
-                                               +----------+
-                                               |
-                                               v
-                                               +-------------------+       +----------------+
-                                               |  URL GET request  | ----> | Get a CSV File |
-                                               +-------------------+       +----------------+
-                                               |
-                                               v
-                                               +----------+
-                                           IDE | Script   | (insert_to_table.py)
-                                               +----------+
-                                               |
-                                               v
-                                               +-----------------------------------------------------------+
-                                               | Extract CSV File's Data, Transform it and Load it on SSMS |
-                                               +-----------------------------------------------------------+
-                                               |
-                                               v
-                                               +-----------+
-                                          SSMS | SQL Query | (Remove duplicates and store execution logs)
-                                               +-----------+
++--------------+
+| IDE | Script | (weekly_extract.py)
++--------------+
+|
+v
++-------------------+       +----------------+
+|  URL GET request  | ----> | Get a CSV File |
++-------------------+       +----------------+
+|
+v
++--------------+
+| IDE | Script | (insert_to_table.py)
++--------------+
+|
+v
++-----------------------------------------------------------+
+| Extract CSV File's Data, Transform it and Load it on SSMS |
++-----------------------------------------------------------+
+|
+v
++------------------+
+| SSMS | SQL Query | ----> (Remove duplicates and store execution logs)
++------------------+
+
 ```
 
 ---
