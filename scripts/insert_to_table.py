@@ -15,7 +15,7 @@ password = os.getenv('DB_PASSWORD')
 
 # Set the CSV file path relative to the script's location
 script_dir = os.path.dirname(os.path.abspath(__file__))  # Get the directory of the current script
-csv_file = os.path.join(script_dir, '../data/CSV_Files', os.path.basename(os.getenv('CSV_FILE').strip("'")))  # Use the base filename from the .env CSV_FILE variable
+csv_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..\data\CSV_Files', os.path.basename(os.getenv('CSV_FILE').strip("'")))  # Use the base filename from the .env CSV_FILE variable
 
 # Connection to SQL Server using environment variables
 print("Using SSMS (SQL Server Management Studio) to operate...")
